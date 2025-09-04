@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require("mongoose");
 
 var app = express();
 app.set("view engine","ejs");
@@ -7,8 +8,13 @@ app.set("views", __dirname + "/views");
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 
-const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/secrets");
+mongoose.connect('mongodb+srv://mohitpouriyalmonu7088_db_user:WssD7cZvpE1aFULj@cluster0.ay5fi7f.mongodb.net/',{
+  useNewUrlParser:true,
+  useUnifiedTopology:true
+})
+    
+.then(()=>console.log("MongoDB Atlas connected"))
+.catch(err=> console.error("connection error:",err));
 
 const userSchema= new mongoose.Schema({
     email:String,
@@ -69,3 +75,4 @@ app.get("/login",(req,res)=>{
 app.listen(5000,() =>{
     console.log("server started on port 5000");
 });
+
