@@ -1,0 +1,16 @@
+body{
+    background: linear-gradient(to right,white,dark gray)
+    
+}
+.centered{
+    padding-top: 200px;
+    text-align: center;
+}
+
+.secret-text{
+    text-align: center;
+    font-size: 2rem;
+    color: rgb(87, 87, 84);
+    background-color: black;
+}
+ 
